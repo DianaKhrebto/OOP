@@ -19,6 +19,7 @@ public:
                                               //она будет определена каждого класса растения
     virtual void Out_Data(string Name, ofstream& ofst) = 0; //Чисто вирутальная функция вывода растения,
                                               //она будет определена каждого класса растения
+    virtual int Plant_consonant_letters(string Name) = 0; //Функция подсчета числа согласных букв в названии растения
 protected:
     Plant() {};
 };
@@ -29,6 +30,7 @@ class Tree : public Plant {
 public:
     void In_Data(ifstream& ifst); //Функция ввода дерева
     void Out_Data(string Name, ofstream& ofst); //Функция вывода дерева
+    int Plant_consonant_letters(string Name); //Функция подсчета числа согласных букв в названии растения
     Tree() {};
 };
 
@@ -54,6 +56,7 @@ class Shrub : public Plant {
 public:
     void In_Data(ifstream& ifst); //Функция ввода кустарника
     void Out_Data(string Name, ofstream& ofst); //Функция вывода кустарника
+    int Plant_consonant_letters(string Name); //Функция подсчета числа согласных букв в названии растения
     Shrub() {};
 };
 

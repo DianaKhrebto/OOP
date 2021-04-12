@@ -27,6 +27,10 @@ void Container::Out_Container(ofstream& ofst) {
     for (int i = 0; i < Len; i++) {
         ofst << i << ": ";
         Temp_Node->Cont->Out_Data(Temp_Node->Cont->Get_Name(), ofst);
+        
+        ofst << "Amount of consonant letters in the name of plant = " << 
+            Temp_Node->Cont->Plant_consonant_letters(Temp_Node->Cont->Get_Name()) << endl << endl;
+
         Temp_Node = Temp_Node->Next;
     }
 }
@@ -160,4 +164,38 @@ void Shrub::Out_Data(string Name, ofstream& ofst) {
     }
 
     ofst << endl << endl;
+}
+
+int Tree::Plant_consonant_letters(string Name) {
+    string Constant_letter = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
+
+    int Amount = 0;
+
+    for (int i = 0; i < Name.length(); i++) {
+        for (int j = 0; j < Constant_letter.length(); j++) {
+            if (Name[i] == Constant_letter[j]) {
+                Amount++;
+                break;
+            }
+        }
+    }
+
+    return Amount;
+}
+
+int Shrub::Plant_consonant_letters(string Name) {
+    string Constant_letter = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
+
+    int Amount = 0;
+
+    for (int i = 0; i < Name.length(); i++) {
+        for (int j = 0; j < Constant_letter.length(); j++) {
+            if (Name[i] == Constant_letter[j]) {
+                Amount++;
+                break;
+            }
+        }
+    }
+
+    return Amount;
 }
