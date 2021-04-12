@@ -44,6 +44,30 @@ void Container::Clear_Container() {
     Len = 0;
 }
 
+void Container::Sort() {
+    if (Len > 1) {
+        Node* First = Head;
+        Node* Second = Head->Next;
+
+        Node* Temp = new Node;
+
+        while (First->Next && First->Next->Next) {
+            while (Second && Second->Next) {
+                if (First->Cont->Compare(*Second->Cont)) {
+                    Temp->Cont = First->Cont;
+                    First->Cont = Second->Cont;
+                    Second->Cont = Temp->Cont;
+                }
+
+                Second = Second->Next;
+            }
+
+            First = First->Next;
+            Second = First->Next;
+        }
+    }
+}
+
 string Plant::Get_Name() {
     return Name;
 }
@@ -68,6 +92,10 @@ Plant* Plant::In_Plant(ifstream& ifst) {
     P->In_Data(ifst);
     
     return P;
+}
+
+bool Plant::Compare(Plant& Other) {
+    return Plant_consonant_letters(Name) > Other.Plant_consonant_letters(Other.Get_Name());
 }
 
 void Tree::In_Data(ifstream& ifst) {

@@ -20,6 +20,7 @@ public:
     virtual void Out_Data(string Name, ofstream& ofst) = 0; //Чисто вирутальная функция вывода растения,
                                               //она будет определена каждого класса растения
     virtual int Plant_consonant_letters(string Name) = 0; //Функция подсчета числа согласных букв в названии растения
+    bool Compare(Plant& Other); //Функция сравнения числа согласных букв в названиях растений
 protected:
     Plant() {};
 };
@@ -73,6 +74,7 @@ public:
     void In_Container(ifstream& ifst); //Функция ввода элементов в контейнер
     void Out_Container(ofstream& ofst); //Функция вывода контейнера
     void Clear_Container(); //Функция очистки контейнера
+    void Sort(); //Функция сортировки контейнера
     Container(); //Конструктор
     ~Container() { Clear_Container(); } //Деструктор  
 };
