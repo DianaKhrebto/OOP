@@ -40,6 +40,18 @@ void Container::Clear_Container() {
     Len = 0;
 }
 
+void Container::Out_Only_Tree(ofstream& ofst) {
+    ofst << endl << "Only Trees." << endl;
+
+    Node* Temp_Node = Head;
+
+    for (int i = 0; i < Len; i++) {
+        ofst << i << ": ";
+        Temp_Node->Cont->Out_Only_Tree(Temp_Node->Cont->Get_Name(), ofst);
+        Temp_Node = Temp_Node->Next;
+    }
+}
+
 string Plant::Get_Name() {
     return Name;
 }
@@ -64,6 +76,10 @@ Plant* Plant::In_Plant(ifstream& ifst) {
     P->In_Data(ifst);
     
     return P;
+}
+
+void Plant::Out_Only_Tree(string Name, ofstream& ofst) {
+    ofst << endl;
 }
 
 void Tree::In_Data(ifstream& ifst) {
@@ -116,6 +132,10 @@ void Shrub::In_Data(ifstream& ifst) {
 void Tree::Out_Data(string Name, ofstream& ofst) {
     ofst << "It's a tree with name: " << Name << endl;
     ofst << "Tree's age is " << Age << endl << endl;
+}
+
+void Tree::Out_Only_Tree(string Name, ofstream& ofst) {
+    Out_Data(Name, ofst);
 }
 
 void Shrub::Out_Data(string Name, ofstream& ofst) {

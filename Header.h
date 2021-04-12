@@ -19,6 +19,7 @@ public:
                                               //она будет определена каждого класса растения
     virtual void Out_Data(string Name, ofstream& ofst) = 0; //Чисто вирутальная функция вывода растения,
                                               //она будет определена каждого класса растения
+    virtual void Out_Only_Tree(string Name, ofstream& ofst); //Функция вывода только деревьев
 protected:
     Plant() {};
 };
@@ -29,6 +30,7 @@ class Tree : public Plant {
 public:
     void In_Data(ifstream& ifst); //Функция ввода дерева
     void Out_Data(string Name, ofstream& ofst); //Функция вывода дерева
+    void Out_Only_Tree(string Name, ofstream& ofst); //Функция вывода только деревьев
     Tree() {};
 };
 
@@ -70,6 +72,7 @@ public:
     void In_Container(ifstream& ifst); //Функция ввода элементов в контейнер
     void Out_Container(ofstream& ofst); //Функция вывода контейнера
     void Clear_Container(); //Функция очистки контейнера
+    void Out_Only_Tree(ofstream& ofst); //Функция вывода только деревьев
     Container(); //Конструктор
     ~Container() { Clear_Container(); } //Деструктор  
 };
