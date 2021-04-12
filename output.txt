@@ -1,5 +1,5 @@
 Filled container. 
-Container contains 6 elements.
+Container contains 4 elements.
 
 0: It's a tree with name: Oak
 Tree's age is 418
@@ -10,14 +10,8 @@ Shrub's flowering month is May
 2: It's a tree with name: Baobab
 Tree's age is 4391
 
-3: It's a tree with name: Bereza
-Tree's age is 20
-
-4: It's a shrub with name: Malina
-Shrub's flowering month is May
-
-5: It's a tree with name: Buk
-Tree's age is 30
+3: It's a flower with name: Chamomile
+Flower's type is Wild
 
 Empty container. 
 Container contains 0 elements.
