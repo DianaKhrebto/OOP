@@ -1,5 +1,5 @@
 Filled and sorted container. 
-Container contains 3 elements.
+Container contains 4 elements.
 
 0: It's a tree with name: Oak
 Tree's age is 418
@@ -15,6 +15,11 @@ Amount of consonant letters in the name of plant = 3
 Shrub's flowering month is May
 
 Amount of consonant letters in the name of plant = 4
+
+3: It's a flower with name: Chamomile
+Flower's type is Wild
+
+Amount of consonant letters in the name of plant = 5
 
 Empty container. 
 Container contains 0 elements.

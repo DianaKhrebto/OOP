@@ -83,6 +83,9 @@ Plant* Plant::In_Plant(ifstream& ifst) {
     else if (K == 2) {
         P = new Shrub;
     }
+    else if (K == 3) {
+        P = new Flower;
+    }
     else {
         return 0;
     }
@@ -194,6 +197,39 @@ void Shrub::Out_Data(string Name, ofstream& ofst) {
     ofst << endl << endl;
 }
 
+void Flower::In_Data(ifstream& ifst) {
+    string Type = "";
+
+    ifst >> Type;
+
+    if (Type == "Home") {
+        T = HOME;
+    }
+    else if (Type == "Garden") {
+        T = GARDEN;
+    }
+    else if (Type == "Wild") {
+        T = WILD;
+    }
+}
+
+void Flower::Out_Data(string Name, ofstream& ofst) {
+    ofst << "It's a flower with name: " << Name << endl;
+    ofst << "Flower's type is ";
+
+    if (T == HOME) {
+        ofst << "Home";
+    }
+    else if (T == GARDEN) {
+        ofst << "Garden";
+    }
+    else if (T == WILD) {
+        ofst << "Wild";
+    }
+
+    ofst << endl << endl;
+}
+
 int Tree::Plant_consonant_letters(string Name) {
     string Constant_letter = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
 
@@ -212,6 +248,23 @@ int Tree::Plant_consonant_letters(string Name) {
 }
 
 int Shrub::Plant_consonant_letters(string Name) {
+    string Constant_letter = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
+
+    int Amount = 0;
+
+    for (int i = 0; i < Name.length(); i++) {
+        for (int j = 0; j < Constant_letter.length(); j++) {
+            if (Name[i] == Constant_letter[j]) {
+                Amount++;
+                break;
+            }
+        }
+    }
+
+    return Amount;
+}
+
+int Flower::Plant_consonant_letters(string Name) {
     string Constant_letter = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
 
     int Amount = 0;
