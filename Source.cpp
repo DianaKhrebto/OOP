@@ -26,7 +26,7 @@ void Container::Out_Container(ofstream& ofst) {
 
     for (int i = 0; i < Len; i++) {
         ofst << i << ": ";
-        Temp_Node->Cont->Out_Data(Temp_Node->Cont->Get_Name(), ofst);
+        Temp_Node->Cont->Out_Data(Temp_Node->Cont->Get_Name(), Temp_Node->Cont->Get_H(), ofst);
         
         ofst << "Amount of consonant letters in the name of plant = " << 
             Temp_Node->Cont->Plant_consonant_letters(Temp_Node->Cont->Get_Name()) << endl << endl;
@@ -72,6 +72,10 @@ string Plant::Get_Name() {
     return Name;
 }
 
+Habitation Plant::Get_H() {
+    return H;
+}
+
 Plant* Plant::In_Plant(ifstream& ifst) {
     Plant* P;
     int K;
@@ -91,6 +95,23 @@ Plant* Plant::In_Plant(ifstream& ifst) {
     }
 
     ifst >> P->Name;
+
+    string Habitant = "";
+
+    ifst >> Habitant;
+
+    if (Habitant == "Tundra") {
+        P->H = TUNDRA;
+    }
+    else if (Habitant == "Desert") {
+        P->H = DESERT;
+    }
+    else if (Habitant == "Steppe") {
+        P->H = STEPPE;
+    }
+    else if (Habitant == "Taiga") {
+        P->H = TAIGA;
+    }
 
     P->In_Data(ifst);
     
@@ -148,12 +169,28 @@ void Shrub::In_Data(ifstream& ifst) {
     }
 }
 
-void Tree::Out_Data(string Name, ofstream& ofst) {
+void Tree::Out_Data(string Name, Habitation H, ofstream& ofst) {
     ofst << "It's a tree with name: " << Name << endl;
-    ofst << "Tree's age is " << Age << endl << endl;
+    ofst << "Tree's age is " << Age << endl;
+    ofst << "Tree's habitation is ";
+
+    if (H == TUNDRA) {
+        ofst << "Tundra";
+    }
+    else if (H == DESERT) {
+        ofst << "Desert";
+    }
+    else if (H == STEPPE) {
+        ofst << "Steppe";
+    }
+    else if (H == TAIGA) {
+        ofst << "Taiga";
+    }
+
+    ofst << endl << endl;
 }
 
-void Shrub::Out_Data(string Name, ofstream& ofst) {
+void Shrub::Out_Data(string Name, Habitation H, ofstream& ofst) {
     ofst << "It's a shrub with name: " << Name << endl;
     ofst << "Shrub's flowering month is ";
 
@@ -194,6 +231,23 @@ void Shrub::Out_Data(string Name, ofstream& ofst) {
         ofst << "December";
     }
 
+    ofst << endl;
+
+    ofst << "Shrub's habitation is ";
+
+    if (H == TUNDRA) {
+        ofst << "Tundra";
+    }
+    else if (H == DESERT) {
+        ofst << "Desert";
+    }
+    else if (H == STEPPE) {
+        ofst << "Steppe";
+    }
+    else if (H == TAIGA) {
+        ofst << "Taiga";
+    }
+
     ofst << endl << endl;
 }
 
@@ -213,7 +267,7 @@ void Flower::In_Data(ifstream& ifst) {
     }
 }
 
-void Flower::Out_Data(string Name, ofstream& ofst) {
+void Flower::Out_Data(string Name, Habitation H, ofstream& ofst) {
     ofst << "It's a flower with name: " << Name << endl;
     ofst << "Flower's type is ";
 
@@ -225,6 +279,23 @@ void Flower::Out_Data(string Name, ofstream& ofst) {
     }
     else if (T == WILD) {
         ofst << "Wild";
+    }
+
+    ofst << endl;
+
+    ofst << "Flower's habitation is ";
+
+    if (H == TUNDRA) {
+        ofst << "Tundra";
+    }
+    else if (H == DESERT) {
+        ofst << "Desert";
+    }
+    else if (H == STEPPE) {
+        ofst << "Steppe";
+    }
+    else if (H == TAIGA) {
+        ofst << "Taiga";
     }
 
     ofst << endl << endl;

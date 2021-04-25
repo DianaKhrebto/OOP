@@ -3,21 +3,25 @@ Container contains 4 elements.
 
 0: It's a tree with name: Oak
 Tree's age is 418
+Tree's habitation is Taiga
 
 Amount of consonant letters in the name of plant = 1
 
 1: It's a tree with name: Baobab
 Tree's age is 4391
+Tree's habitation is Steppe
 
 Amount of consonant letters in the name of plant = 3
 
 2: It's a shrub with name: Syringa
 Shrub's flowering month is May
+Shrub's habitation is Steppe
 
 Amount of consonant letters in the name of plant = 4
 
 3: It's a flower with name: Chamomile
 Flower's type is Wild
+Flower's habitation is Taiga
 
 Amount of consonant letters in the name of plant = 5
 

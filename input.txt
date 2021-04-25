@@ -1,12 +1,16 @@
 1
 Oak
+Taiga
 418
 2
 Syringa
+Steppe
 May
 1
 Baobab
+Steppe
 4391
 3
 Chamomile
+Taiga
 Wild
