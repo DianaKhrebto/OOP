@@ -27,6 +27,10 @@ void Container::Out_Container(ofstream& ofst) {
     for (int i = 0; i < Len; i++) {
         ofst << i << ": ";
         Temp_Node->Cont->Out_Data(Temp_Node->Cont->Get_Name(), ofst);
+        
+        ofst << "Amount of consonant letters in the name of plant = " << 
+            Temp_Node->Cont->Plant_consonant_letters(Temp_Node->Cont->Get_Name()) << endl << endl;
+
         Temp_Node = Temp_Node->Next;
     }
 }
@@ -38,6 +42,30 @@ void Container::Clear_Container() {
     }
 
     Len = 0;
+}
+
+void Container::Sort() {
+    if (Len > 1) {
+        Node* First = Head;
+        Node* Second = Head->Next;
+
+        Node* Temp = new Node;
+
+        while (First->Next && First->Next->Next) {
+            while (Second && Second->Next) {
+                if (First->Cont->Compare(*Second->Cont)) {
+                    Temp->Cont = First->Cont;
+                    First->Cont = Second->Cont;
+                    Second->Cont = Temp->Cont;
+                }
+
+                Second = Second->Next;
+            }
+
+            First = First->Next;
+            Second = First->Next;
+        }
+    }
 }
 
 string Plant::Get_Name() {
@@ -64,6 +92,10 @@ Plant* Plant::In_Plant(ifstream& ifst) {
     P->In_Data(ifst);
     
     return P;
+}
+
+bool Plant::Compare(Plant& Other) {
+    return Plant_consonant_letters(Name) > Other.Plant_consonant_letters(Other.Get_Name());
 }
 
 void Tree::In_Data(ifstream& ifst) {
@@ -160,4 +192,38 @@ void Shrub::Out_Data(string Name, ofstream& ofst) {
     }
 
     ofst << endl << endl;
+}
+
+int Tree::Plant_consonant_letters(string Name) {
+    string Constant_letter = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
+
+    int Amount = 0;
+
+    for (int i = 0; i < Name.length(); i++) {
+        for (int j = 0; j < Constant_letter.length(); j++) {
+            if (Name[i] == Constant_letter[j]) {
+                Amount++;
+                break;
+            }
+        }
+    }
+
+    return Amount;
+}
+
+int Shrub::Plant_consonant_letters(string Name) {
+    string Constant_letter = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
+
+    int Amount = 0;
+
+    for (int i = 0; i < Name.length(); i++) {
+        for (int j = 0; j < Constant_letter.length(); j++) {
+            if (Name[i] == Constant_letter[j]) {
+                Amount++;
+                break;
+            }
+        }
+    }
+
+    return Amount;
 }

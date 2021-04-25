@@ -1,23 +1,20 @@
-Filled container. 
-Container contains 6 elements.
+Filled and sorted container. 
+Container contains 3 elements.
 
 0: It's a tree with name: Oak
 Tree's age is 418
 
-1: It's a shrub with name: Syringa
-Shrub's flowering month is May
+Amount of consonant letters in the name of plant = 1
 
-2: It's a tree with name: Baobab
+1: It's a tree with name: Baobab
 Tree's age is 4391
 
-3: It's a tree with name: Bereza
-Tree's age is 20
+Amount of consonant letters in the name of plant = 3
 
-4: It's a shrub with name: Malina
+2: It's a shrub with name: Syringa
 Shrub's flowering month is May
 
-5: It's a tree with name: Buk
-Tree's age is 30
+Amount of consonant letters in the name of plant = 4
 
 Empty container. 
 Container contains 0 elements.
