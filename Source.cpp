@@ -68,6 +68,18 @@ void Container::Sort() {
     }
 }
 
+void Container::Out_Only_Tree(ofstream& ofst) {
+    ofst << endl << "Only Trees." << endl;
+
+    Node* Temp_Node = Head;
+
+    for (int i = 0; i < Len; i++) {
+        ofst << i << ": ";
+        Temp_Node->Cont->Out_Only_Tree(Temp_Node->Cont->Get_Name(), Temp_Node->Cont->Get_H(), ofst);
+        Temp_Node = Temp_Node->Next;
+    }
+}
+
 string Plant::Get_Name() {
     return Name;
 }
@@ -116,6 +128,10 @@ Plant* Plant::In_Plant(ifstream& ifst) {
     P->In_Data(ifst);
     
     return P;
+}
+
+void Plant::Out_Only_Tree(string Name, Habitation H, ofstream& ofst) {
+    ofst << endl;
 }
 
 bool Plant::Compare(Plant& Other) {
@@ -188,6 +204,10 @@ void Tree::Out_Data(string Name, Habitation H, ofstream& ofst) {
     }
 
     ofst << endl << endl;
+}
+
+void Tree::Out_Only_Tree(string Name, Habitation H, ofstream& ofst) {
+    Out_Data(Name, H, ofst);
 }
 
 void Shrub::Out_Data(string Name, Habitation H, ofstream& ofst) {

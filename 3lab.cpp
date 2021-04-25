@@ -1,4 +1,7 @@
-﻿#include <iostream>
+﻿// 3lab.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include <iostream>
 
 #include "Header.h"
 
@@ -25,6 +28,8 @@ int main(int argc, char* argv[])
     C.Sort(); //Сортировка контейнера
 
     C.Out_Container(ofst); //Вывод контейнера
+
+    C.Out_Only_Tree(ofst); //Вывод только деревьев
 
     C.Clear_Container();//Очистка контейнера
 

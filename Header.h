@@ -31,6 +31,7 @@ public:
                                               //она будет определена каждого класса растения
     virtual int Plant_consonant_letters(string Name) = 0; //Функция подсчета числа согласных букв в названии растения
     bool Compare(Plant& Other); //Функция сравнения числа согласных букв в названиях растений
+    virtual void Out_Only_Tree(string Name, Habitation H, ofstream& ofst); //Функция вывода только деревьев
 protected:
     Plant() {};
 };
@@ -42,6 +43,7 @@ public:
     void In_Data(ifstream& ifst); //Функция ввода дерева
     void Out_Data(string Name, Habitation H, ofstream& ofst); //Функция вывода дерева
     int Plant_consonant_letters(string Name); //Функция подсчета числа согласных букв в названии растения
+    void Out_Only_Tree(string Name, Habitation H, ofstream& ofst); //Функция вывода только деревьев
     Tree() {};
 };
 
@@ -102,6 +104,7 @@ public:
     void Out_Container(ofstream& ofst); //Функция вывода контейнера
     void Clear_Container(); //Функция очистки контейнера
     void Sort(); //Функция сортировки контейнера
+    void Out_Only_Tree(ofstream& ofst); //Функция вывода только деревьев
     Container(); //Конструктор
     ~Container() { Clear_Container(); } //Деструктор  
 };
